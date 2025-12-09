@@ -12,16 +12,55 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const NODE_ENV = process.env.NODE_ENV || 'development';
 const PYTHON_API = process.env.PYTHON_API || 'http://localhost:8001';
 
+// CORS Configuration
+const allowedOrigins = process.env.CORS_ORIGINS
+    ? process.env.CORS_ORIGINS.split(',')
+    : [ 'http://localhost:3000', 'http://localhost:3001' ];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        // Allow requests with no origin (mobile apps, Postman, etc.)
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) !== -1 || NODE_ENV === 'development') {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Logging middleware
 app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
     next();
+});
+
+// Root endpoint
+app.get('/', (req, res) => {
+    res.json({
+        message: 'HFT Trading System API',
+        version: '1.0.0',
+        environment: NODE_ENV,
+        endpoints: {
+            health: '/api/health',
+            stats: '/api/stats',
+            predict: '/api/predict',
+            history: '/api/history/:symbol',
+            symbols: '/api/symbols',
+            ensemble: '/api/ensemble/info',
+            backtest: '/api/backtest/results'
+        }
+    });
 });
 
 // Health check
@@ -31,12 +70,16 @@ app.get('/api/health', async (req, res) => {
         res.json({
             status: 'ok',
             backend: 'online',
+            environment: NODE_ENV,
+            timestamp: new Date().toISOString(),
             python_api: response.data
         });
     } catch (error) {
         res.status(503).json({
             status: 'error',
             backend: 'online',
+            environment: NODE_ENV,
+            timestamp: new Date().toISOString(),
             python_api: 'offline',
             message: 'Python API not responding'
         });
