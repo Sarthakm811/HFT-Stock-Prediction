@@ -1,0 +1,35 @@
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: white;
+    border: 2px solid #667eea;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #667eea;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-text {
+    font-size: 0.8em;
+}
+
+/* Dark mode styles */
+.dark-mode .theme-toggle {
+    background: #2d3748;
+    border-color: #667eea;
+    color: #667eea;
+}

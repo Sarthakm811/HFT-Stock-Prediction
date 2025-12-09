@@ -1,0 +1,83 @@
+/* Dark Mode Styles */
+
+.dark-mode {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+}
+
+.dark-mode .App-header {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+.dark-mode .App-header h1 {
+    color: #667eea;
+}
+
+.dark-mode .App-header p {
+    color: #cbd5e0;
+}
+
+.dark-mode .stat-card,
+.dark-mode .prediction-panel,
+.dark-mode .stats-panel,
+.dark-mode .trading-chart,
+.dark-mode .historical-chart,
+.dark-mode .volume-chart,
+.dark-mode .confidence-gauge,
+.dark-mode .market-depth {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+.dark-mode .stat-card h3,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4 {
+    color: #e2e8f0;
+}
+
+.dark-mode .stat-card .value {
+    color: #667eea;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    background: #1a202c;
+    color: #e2e8f0;
+    border-color: #4a5568;
+}
+
+.dark-mode .depth-header,
+.dark-mode .info-section {
+    background: #1a202c;
+}
+
+.dark-mode .depth-row,
+.dark-mode .info-row {
+    border-color: #4a5568;
+}
+
+.dark-mode .stat-item {
+    background: #1a202c;
+}
+
+.dark-mode .custom-tooltip {
+    background: #2d3748;
+    color: #e2e8f0;
+    border-color: #667eea;
+}
+
+.dark-mode .App-footer {
+    background: rgba(45, 55, 72, 0.8);
+    color: #cbd5e0;
+}
+
+.dark-mode .error-banner {
+    background: #742a2a;
+    color: #feb2b2;
+}
+
+.dark-mode .loading {
+    color: #e2e8f0;
+}

@@ -1,0 +1,205 @@
+.historical-chart {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-left h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.3em;
+}
+
+.price-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.current-price {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-change {
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.price-change.positive {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.price-change.negative {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.chart-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.chart-type-selector {
+    display: flex;
+    gap: 6px;
+    background: #f3f4f6;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.chart-type-selector button {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.chart-type-selector button:hover {
+    color: #667eea;
+}
+
+.chart-type-selector button.active {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.points-selector {
+    padding: 8px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.points-selector:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.chart-loading {
+    text-align: center;
+    padding: 100px 20px;
+    color: #666;
+    font-size: 1.1em;
+}
+
+.custom-tooltip {
+    background: white;
+    padding: 12px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-tooltip .label {
+    margin: 0 0 5px 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.custom-tooltip .price {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.custom-tooltip .volume {
+    margin: 0;
+    color: #666;
+    font-size: 0.85em;
+}
+
+.chart-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #f3f4f6;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+}
+
+.stat-value.positive {
+    color: #10b981;
+}
+
+.stat-value.negative {
+    color: #ef4444;
+}
+
+.prediction-stat {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 2px solid #667eea;
+}
+
+.stat-value.buy {
+    color: #10b981;
+}
+
+.stat-value.sell {
+    color: #ef4444;
+}
+
+.stat-value.hold {
+    color: #f59e0b;
+}
+
+@media (max-width: 768px) {
+    .chart-header {
+        flex-direction: column;
+    }
+
+    .chart-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .chart-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}

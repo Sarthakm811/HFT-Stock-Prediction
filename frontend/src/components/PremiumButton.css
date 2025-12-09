@@ -1,0 +1,165 @@
+.premium-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.premium-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.premium-button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.premium-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.premium-button:active {
+    transform: translateY(0);
+}
+
+/* Variants */
+.premium-button.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.premium-button.primary:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+}
+
+.premium-button.secondary {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    color: white;
+}
+
+.premium-button.success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.premium-button.danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.premium-button.outline {
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea;
+    box-shadow: none;
+}
+
+.premium-button.outline:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: #764ba2;
+    color: #764ba2;
+}
+
+/* Sizes */
+.premium-button.small {
+    padding: 8px 16px;
+    font-size: 0.85em;
+    border-radius: 8px;
+}
+
+.premium-button.medium {
+    padding: 12px 24px;
+    font-size: 1em;
+    border-radius: 12px;
+}
+
+.premium-button.large {
+    padding: 16px 32px;
+    font-size: 1.1em;
+    border-radius: 14px;
+}
+
+/* States */
+.premium-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.premium-button.loading {
+    cursor: wait;
+}
+
+.button-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.button-icon {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Dark mode */
+.dark-mode .premium-button.outline {
+    border-color: #e2e8f0;
+    color: #e2e8f0;
+}
+
+.dark-mode .premium-button.outline:hover {
+    background: rgba(226, 232, 240, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .premium-button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+
+    .premium-button.small {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .premium-button.large {
+        padding: 14px 28px;
+        font-size: 1em;
+    }
+}

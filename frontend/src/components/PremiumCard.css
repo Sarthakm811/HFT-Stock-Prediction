@@ -1,0 +1,120 @@
+.premium-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideInUp 0.6s ease-out;
+}
+
+.premium-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(102, 126, 234, 0.2);
+}
+
+.premium-card.glow {
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 40px rgba(102, 126, 234, 0.3);
+}
+
+.premium-card.glow:hover {
+    box-shadow:
+        0 16px 48px rgba(102, 126, 234, 0.2),
+        0 0 60px rgba(102, 126, 234, 0.5);
+}
+
+.premium-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.premium-card-icon {
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.premium-card-title-group {
+    flex: 1;
+}
+
+.premium-card-title {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.premium-card-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 500;
+}
+
+.premium-card-content {
+    color: #333;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark mode */
+.dark-mode .premium-card {
+    background: rgba(45, 55, 72, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .premium-card-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .premium-card-subtitle {
+    color: #cbd5e0;
+}
+
+.dark-mode .premium-card-content {
+    color: #e2e8f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .premium-card {
+        padding: 16px;
+    }
+
+    .premium-card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+    }
+
+    .premium-card-title {
+        font-size: 1.1em;
+    }
+}

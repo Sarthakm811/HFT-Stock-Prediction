@@ -1,0 +1,129 @@
+.notification-system {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+}
+
+.notification {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid;
+    animation: slideInRight 0.4s ease-out;
+    transition: all 0.3s;
+}
+
+.notification:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.notification-success {
+    border-left-color: #10b981;
+}
+
+.notification-error {
+    border-left-color: #ef4444;
+}
+
+.notification-warning {
+    border-left-color: #f59e0b;
+}
+
+.notification-info {
+    border-left-color: #667eea;
+}
+
+.notification-icon {
+    font-size: 1.2em;
+    margin-top: 2px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 0.95em;
+}
+
+.notification-message {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.notification-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #666;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.dark-mode .notification {
+    background: rgba(45, 55, 72, 0.95);
+}
+
+.dark-mode .notification-title {
+    color: #e2e8f0;
+}
+
+.dark-mode .notification-message {
+    color: #cbd5e0;
+}
+
+.dark-mode .notification-close {
+    color: #a0aec0;
+}
+
+.dark-mode .notification-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+    .notification-system {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}

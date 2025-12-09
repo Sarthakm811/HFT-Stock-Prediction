@@ -1,0 +1,119 @@
+.tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    background: rgba(45, 55, 72, 0.98);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(45, 55, 72, 0.98);
+}
+
+.tooltip-wrapper:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Position variants */
+.tooltip.top {
+    bottom: calc(100% + 10px);
+    top: auto;
+}
+
+.tooltip.bottom {
+    top: calc(100% + 10px);
+    bottom: auto;
+}
+
+.tooltip.bottom::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: rgba(45, 55, 72, 0.98);
+}
+
+.tooltip.left {
+    left: auto;
+    right: calc(100% + 10px);
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%) translateX(-5px);
+}
+
+.tooltip.left::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: rgba(45, 55, 72, 0.98);
+    border-top-color: transparent;
+}
+
+.tooltip-wrapper:hover .tooltip.left {
+    transform: translateY(-50%) translateX(0);
+}
+
+.tooltip.right {
+    left: calc(100% + 10px);
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%) translateX(5px);
+}
+
+.tooltip.right::after {
+    right: 100%;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: rgba(45, 55, 72, 0.98);
+    border-top-color: transparent;
+}
+
+.tooltip-wrapper:hover .tooltip.right {
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Dark mode adjustments */
+.dark-mode .tooltip {
+    background: rgba(255, 255, 255, 0.98);
+    color: #2d3748;
+}
+
+.dark-mode .tooltip::after {
+    border-top-color: rgba(255, 255, 255, 0.98);
+}
+
+.dark-mode .tooltip.bottom::after {
+    border-bottom-color: rgba(255, 255, 255, 0.98);
+}
+
+.dark-mode .tooltip.left::after {
+    border-left-color: rgba(255, 255, 255, 0.98);
+}
+
+.dark-mode .tooltip.right::after {
+    border-right-color: rgba(255, 255, 255, 0.98);
+}
