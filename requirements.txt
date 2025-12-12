@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+tensorflow
+fastapi
+uvicorn[standard]
+ta
+plotly
+matplotlib
+seaborn
+joblib
+psutil
+websockets
+requests
